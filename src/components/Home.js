@@ -30,19 +30,19 @@ function Home() {
         <div className="home__row">
           <Product
             title="$10 Xbox Gift Card [Digital Code]"
-            price={10.0}
+            price={10.00}
             image="https://images-na.ssl-images-amazon.com/images/I/61CO3FA7h4S._SL1500_.jpg"
             stars={3}
           />
           <Product
             title="Amazon Reload"
-            price={25.0}
+            price={24.99}
             image="https://images-na.ssl-images-amazon.com/images/I/41rPcyZJ3nL._AC_.jpg"
             rating={5}
           />
           <Product
             title="$10 PlayStation Store Gift Card [Digital Code]"
-            price={10.0}
+            price={9.99}
             image="https://images-na.ssl-images-amazon.com/images/I/61-BT%2BTBduS._SL1500_.jpg"
             rating={4}
           />
