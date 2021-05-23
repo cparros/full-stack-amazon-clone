@@ -13,19 +13,48 @@ function Home() {
         />
 
         <div className="home__row">
-          <Product title='The lean startup' price={30.99} image='https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg' rating={5}/>
-          <Product />
-          
+          <Product
+            title="The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses"
+            price={30.99}
+            image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
+            rating={5}
+          />
+          <Product
+            title="Wyze Cam v3 1080p HD Indoor/Outdoor Video Camera for Security, Pets, Baby Monitor, w/Color Night Vision, 2-Way Audio, Works with Alexa & Google"
+            price={29.98}
+            image="https://images-na.ssl-images-amazon.com/images/I/61DJRLNgyWL._AC_SL1500_.jpg"
+            rating={4}
+          />
         </div>
 
         <div className="home__row">
-          <Product />
-          <Product />
-          <Product />
+          <Product
+            title="$10 Xbox Gift Card [Digital Code]"
+            price={10.0}
+            image="https://images-na.ssl-images-amazon.com/images/I/61CO3FA7h4S._SL1500_.jpg"
+            stars={3}
+          />
+          <Product
+            title="Amazon Reload"
+            price={25.0}
+            image="https://images-na.ssl-images-amazon.com/images/I/41rPcyZJ3nL._AC_.jpg"
+            rating={5}
+          />
+          <Product
+            title="$10 PlayStation Store Gift Card [Digital Code]"
+            price={10.0}
+            image="https://images-na.ssl-images-amazon.com/images/I/61-BT%2BTBduS._SL1500_.jpg"
+            rating={4}
+          />
         </div>
 
         <div className="home__row">
-          <Product />
+          <Product
+            title="VIOTEK GNV29CB Ultrawide Curved 29-Inch Gaming Monitor | 120Hz UWFHD 21:9 w/Immersive 1200R VA Panel | FreeSync, G-SYNC-Compatible | 3-Year Warranty, 0-Tolerance Dead Pixel Policy (VESA)"
+            price={229.99}
+            image="https://images-na.ssl-images-amazon.com/images/I/81hZ7jc1rwL._AC_SL1500_.jpg"
+            rating={5}
+          />
         </div>
       </div>
     </div>
