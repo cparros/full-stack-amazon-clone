@@ -40,7 +40,7 @@ function Product({ /*props*/ id, title, image, price, rating }) {
             ))}
         </div>
       </div>
-      <img src={image} />
+      <img src={image} alt=''/>
 
       <button onClick={addToBasket}>Add to Basket</button>
     </div>
