@@ -21,7 +21,7 @@ function Home() {
             rating={5}
           />
           <Product
-          id='234568'
+            id='234568'
             title="Wyze Cam v3 1080p HD Indoor/Outdoor Video Camera for Security, Pets, Baby Monitor, w/Color Night Vision, 2-Way Audio, Works with Alexa & Google"
             price={29.98}
             image="https://images-na.ssl-images-amazon.com/images/I/61DJRLNgyWL._AC_SL1500_.jpg"
