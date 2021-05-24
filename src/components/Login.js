@@ -6,6 +6,19 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  //Register and sign in info from firebase site. Need config file info and Authentication setup. "get started/sign-in method. Enable email/password"
+
+  //you will need to npm i firbase package OR sudo npm i -g firebase-tools for global install
+  const signIn = (e) => {
+    e.preventDefault()
+    //Firebase Login functionality
+  }
+
+  const register = (e) => {
+    e.preventDefault()
+    //Firebase Register functionality
+  }
+ 
   return (
     <div className="login">
       <Link to="/">
@@ -23,14 +36,14 @@ function Login() {
           <h5>Password</h5>
           <input type='password' value={password} onChange={e => setPassword(e.target.value)}/>
 
-          <button className='login__signInButton'>Sign In</button>
+          <button onClick={signIn} type='submit' className='login__signInButton'>Sign In</button>
         </form>
 
         <p>
           By signing-in you agree to CPARROS AMAZON CLONE Condition of Use & Fun. Please see our nonexistent Provacy Notice, Cookie Notice and Interest-Based ads and remember to be KIND to everyone around you.
         </p>
 
-        <button className='login__registerButton'>Create New Amazon Account</button>
+        <button onClick={register} className='login__registerButton'>Create New Amazon Account</button>
       </div>
     </div>
   );
