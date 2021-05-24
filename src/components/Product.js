@@ -8,7 +8,8 @@ function Product({ /*props*/ id, title, image, price, rating }) {
   const addToBasket = () => {
     // 1. Push data to data layer 2. state = state of global store 3.dispatch is how data is manipulated
     //dispatch the item into data layer
-    console.log("This is the basket >>>", basket);
+
+    // console.log("This is the basket >>>", basket);
 
     dispatch({
       type: "ADD_TO_BASKET",
