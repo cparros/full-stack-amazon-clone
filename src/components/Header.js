@@ -33,7 +33,8 @@ function Header() {
 
       <div className="header__nav">
         {/* if there was no user then you go to login page */}
-        <Link to={!user && "/login"}>
+        {/* Link to was erroring because link to is looking specifically for a string {!user & '/login'} does not return a string if there is a user. */}
+        <Link to={!user ? "/login" : '/'}>
           <div onClick={handleAuthentication} className="header__option">
             <span className="header__optionLineOne">Hello {user?.email}</span>
             <span className="header__optionLineTwo">
