@@ -41,7 +41,7 @@ function Header() {
         <Link to="/checkout">
           <div className="header__optionBasket">
             <ShoppingBasketIcon />
-            {/* .? = optional chaining meaning if you for any reason dont have a correct value or undefied it wont freak out but gracefully handle error*/}
+            {/* .? = optional chaining meaning if you for any reason dont have a correct value or undefied it wont break but quietly handle error*/}
             <span className="header__optionLineTwo header__basketCount">{basket?.length}</span>
           </div>
         </Link>
