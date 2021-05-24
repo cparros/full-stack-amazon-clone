@@ -21,6 +21,7 @@ const reducer = (state, action) => {
         basket: [...state.basket, action.item],
       };
 
+      // when "remove from basket" clicked the code below checks the basket and splices or removes AT THE INDEX of the item clicked by 1 (index, 1)
     case 'REMOVE_FROM_BASKET': 
       const index = state.basket.findIndex(
         (basketItem) => basketItem.id === action.id
