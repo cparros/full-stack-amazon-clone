@@ -1,7 +1,9 @@
 .checkoutProduct {
   display: flex;
+  padding-bottom: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
+  border-bottom: solid lightgray 1px;
 }
 
 .checkoutProduct__info {
