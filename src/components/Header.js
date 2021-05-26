@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles/Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase";
+import anime from "animejs/lib/anime.es";
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -14,6 +15,22 @@ function Header() {
       auth.signOut();
     }
   };
+
+  useEffect(() => {
+    anime({
+      targets: ".header__optionBasket",
+      easing: "linear",
+      duration: 200,
+      translateX: [
+        {
+          value: 10,
+        },
+        {
+          value: 0,
+        },
+      ],
+    });
+  }, [basket]);
 
   return (
     <div className="header">
@@ -34,9 +51,11 @@ function Header() {
       <div className="header__nav">
         {/* if there was no user then you go to login page */}
         {/* Link to was erroring because link to is looking specifically for a string {!user & '/login'} does not return a string if there is a user. */}
-        <Link to={!user ? "/login" : '/'}>
+        <Link to={!user ? "/login" : "/"}>
           <div onClick={handleAuthentication} className="header__option">
-            <span className="header__optionLineOne">Hello {!user ? 'Guest' : user?.email}</span>
+            <span className="header__optionLineOne">
+              Hello {!user ? "Guest" : user?.email}
+            </span>
             <span className="header__optionLineTwo">
               {user ? "Sign Out" : "Sign In"}
             </span>

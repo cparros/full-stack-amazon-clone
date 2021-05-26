@@ -1,15 +1,17 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import axios from "axios";
+import axios from "../axios";
 import React, { useState, useEffect } from "react";
 import CurrencyFormat from "react-currency-format";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getBasketTotal } from "../reducer";
 import { useStateValue } from "../StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
+
 import "./styles/Payment.css";
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
+  const history = useHistory()
 
   const stripe = useStripe();
   const elements = useElements();
@@ -21,6 +23,7 @@ function Payment() {
   const [disabled, setDisabled] = useState(true);
 
   const [clientSecret, setClientSecret] = useState(true);
+
   useEffect(() => {
     //generate stripe secrt that allows charging of customer. You need new secret when basket changes so basket goes in []
     const getClientSecret = async () => {
@@ -51,7 +54,7 @@ function Payment() {
      setSucceeded(true)
      setError(null)
      setprocessing(false)
-
+      // you use replace here because when doing paymets you dont want the user to be able to go back in the browser to another payment page.
      history.replace('./orders')
     });
     
