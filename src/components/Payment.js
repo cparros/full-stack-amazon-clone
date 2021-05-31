@@ -17,7 +17,7 @@ function Payment() {
   const elements = useElements();
 
   const [succeeded, setSucceeded] = useState(false);
-  const [processing, setprocessing] = useState("");
+  const [processing, setProcessing] = useState("");
 
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
@@ -25,11 +25,12 @@ function Payment() {
   const [clientSecret, setClientSecret] = useState(true);
 
   useEffect(() => {
+    //SUPER IMPORTANT PIECE OF CODE
     //generate stripe secrt that allows charging of customer. You need new secret when basket changes so basket goes in []
     const getClientSecret = async () => {
       const response = await axios({
         method: "POST",
-        //stripe expexts the total in a currencies subunits aka cents $10 = 1000
+        //stripe expexts the total in a currencies subunits, aka cents. $10 = 10000
         url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
       });
       setClientSecret(response.data.clientSecret);
@@ -41,7 +42,7 @@ function Payment() {
   const handleSubmit = async (event) => {
     // stripe functions
     event.preventDefault();
-    setprocessing(true);
+    setProcessing(true);
 
       //payload takes in the client secret from use effect change so it can charge the client
     const payload = await stripe.confirmCardPayment(clientSecret, {
@@ -51,9 +52,11 @@ function Payment() {
       
     }).then(({ paymentIntent }) => {
      //payment intent is payment confirmation 
+
+     //if is successful
      setSucceeded(true)
      setError(null)
-     setprocessing(false)
+     setProcessing(false)
       // you use replace here because when doing paymets you dont want the user to be able to go back in the browser to another payment page.
      history.replace('./orders')
     });

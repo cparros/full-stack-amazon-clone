@@ -10,7 +10,7 @@ function Product({ /*props*/ id, title, image, price, rating }) {
     let target = e.target
     anime({
       targets: target,
-      scale: 1.05,
+      scale: 1.02,
     })
   }
 
@@ -26,7 +26,7 @@ function Product({ /*props*/ id, title, image, price, rating }) {
     let target = e.target
     anime({
       targets: target,
-      scale: 1.2,
+      scale: 1.1,
     })
   }
 
