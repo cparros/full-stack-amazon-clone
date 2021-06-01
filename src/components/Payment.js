@@ -39,6 +39,8 @@ function Payment() {
     getClientSecret();
   }, [basket]);
 
+  console.log('The Client Secret is >>>', clientSecret)
+
   const handleSubmit = async (event) => {
     // stripe functions
     event.preventDefault();
@@ -57,6 +59,10 @@ function Payment() {
      setSucceeded(true)
      setError(null)
      setProcessing(false)
+
+     dispatch({
+       type: 'EMPTY_BASKET'
+     })
       // you use replace here because when doing paymets you dont want the user to be able to go back in the browser to another payment page.
      history.replace('./orders')
     });

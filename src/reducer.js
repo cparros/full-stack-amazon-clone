@@ -1,15 +1,14 @@
 export const initialState = {
   basket: [],
-  user: null
+  user: null,
 };
 
 //Selector
 export const getBasketTotal = (basket) =>
-//map through the basket and take in an initial amount at each item. 
-//At each item take the price and add it to the initial amount value. 
-//Initial amount value is 0 
-  basket?.reduce((amount, item) => item.price + amount, 0)
-
+  //map through the basket and take in an initial amount at each item.
+  //At each item take the price and add it to the initial amount value.
+  //Initial amount value is 0
+  basket?.reduce((amount, item) => item.price + amount, 0);
 
 const reducer = (state, action) => {
   console.log(action);
@@ -22,31 +21,39 @@ const reducer = (state, action) => {
         basket: [...state.basket, action.item],
       };
 
-      // when "remove from basket" clicked the code below checks the basket and splices or removes AT THE INDEX of the item clicked by 1 (index, 1)
-    case 'REMOVE_FROM_BASKET': 
+    case "EMPTY_BASKET":
+      return {
+        ...state,
+        basket: [],
+      };
+
+    // when "remove from basket" clicked the code below checks the basket and splices or removes AT THE INDEX of the item clicked by 1 (index, 1)
+    case "REMOVE_FROM_BASKET":
       const index = state.basket.findIndex(
         (basketItem) => basketItem.id === action.id
       );
 
       let newBasket = [...state.basket];
 
-      if(index >= 0) {
-        newBasket.splice(index, 1)
+      if (index >= 0) {
+        newBasket.splice(index, 1);
       } else {
-        console.warn(`Cant remove product (id:${action.id}) it is not in the basket!`)
+        console.warn(
+          `Cant remove product (id:${action.id}) it is not in the basket!`
+        );
       }
 
-        return {
+      return {
         ...state,
-        basket: newBasket
-      }
+        basket: newBasket,
+      };
 
-    case 'SET_USER':
-    return {
-      ...state,
-      user: action.user
-    }
-  
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
+
     default:
       return state;
   }
