@@ -6,6 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 import { getBasketTotal } from "../reducer";
 import { useStateValue } from "../StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
+import { db } from '../firebase'
 
 import "./styles/Payment.css";
 
@@ -54,6 +55,15 @@ function Payment() {
       
     }).then(({ paymentIntent }) => {
      //payment intent is payment confirmation 
+      db.collection('users')
+      .doc(user?.uid)
+      .collection('orders')
+      .doc(paymentIntent.id)
+      .set({
+        basket: basket,
+        amount: paymentIntent.amount,
+        created: paymentIntent.created
+      })
 
      //if is successful
      setSucceeded(true)
